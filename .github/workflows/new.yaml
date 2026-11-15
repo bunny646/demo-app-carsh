@@ -13,6 +13,8 @@ jobs:
             - name: Say Hello
               run: echo "Hello from demo workflow !"
 
+            
+
             - name: Install
               env:
                 APP_ENV: demo
@@ -28,3 +30,13 @@ jobs:
               with:
                 name: demo-artifact
                 path: .
+
+    test:
+      runs-on: ubuntu-latest
+      needs: build
+
+      steps: 
+        - name: Test job
+          run: echo "TestJob"
+
+      
